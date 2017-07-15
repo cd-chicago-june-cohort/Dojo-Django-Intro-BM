@@ -1,0 +1,60 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Acme', sans-serif;
+    text-align: center; 
+}
+
+body {
+    background-color: black;
+    body: 80%;
+}
+
+.infobox {
+    font-size: 1.2em;
+    margin-top: 40px;
+}
+
+#submit {
+    background-color: black;
+}
+
+#counterbox {
+    text-align: center;
+    background-color: lightgreen;
+    width: 100%;
+}
+
+.results_button {
+    font-size: 1.4em;
+    width: 200px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.white-text {
+    color: white;
+    background-color: black;
+}
+
+.header {
+    /* text-align: center;  */
+    margin-left: 36%;
+}
+
+label, h1, .comments {
+    color: white;
+}
+
+.left {
+    text-align: center;
+    margin-right: 20px;
+}
+
+.right {
+    text-align: center;
+}
+.result_box {
+    margin: 10px;
+}

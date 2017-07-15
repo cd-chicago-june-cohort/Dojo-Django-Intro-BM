@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content="width=device-width initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'survey/css/styles.css' %}" media="screen" title="Random Word" charset="UTF-8">
+    <title>Survey Results</title>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-6 logo">
+            <img src="{% static 'survey/images/dojologo1.png' %}" class="img-responsive" alt="Coding Dojo Logo">
+        </div>
+        <div class="col-md-6 infobox">
+            <h1 id="header_results">Dojo Survey Results:</h1>
+    
+            {% csrf_token %}
+            
+                <div class="result_box">
+                    <span class="left white-text">Your Name:</span>
+                    <span class="right white-text"> {{request.session.name}}</span>
+                </div>
+                <div class="result_box">
+                    <span class="left white-text">Dojo Location:</span>
+                    <span class="right white-text"> {{request.session.dojo}}</span>
+                </div>
+                <div class="result_box">
+                    <span class="left white-text">Favorite Language:</span>
+                    <span class="right white-text"> {{request.session.language}}</span>
+                </div>
+                <div class="result_box">
+                    <span class="left white-text">Comments:</span>
+                    <span class="right white-text"> {{request.session.comments}}</span>
+                </div>
+            
+                </form>
+                <div class="row">
+                <div id="counterbox">
+                    <p>Thanks for submitting this form!</p>  <p>You have submitted this form {{request.session.counter}} times now.</p>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form action="/">
+                            <input class="results_button" type="submit" name="resend" value="Do it {{request.session.resend}} times!">
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <form action="/reset">
+                            <input class="results_button" type="submit" name="clear" value="Clear Form">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

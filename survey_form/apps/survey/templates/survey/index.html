@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content="width=device-width initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'survey/css/styles.css' %}" media="screen" title="Random Word" charset="UTF-8">
+    <title>Survey</title>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-6 logo">
+            <img src="{% static 'survey/images/dojologo1.png' %}" class="img-responsive" alt="Coding Dojo Logo">
+        </div>
+        
+        <div class="col-md-6 infobox">
+            <form class="pure-form pure-form-aligned" action="/result" method="post">
+                <h1 class="header">Coding Dojo Survey</h1>
+                {% csrf_token %}
+                <fieldset>
+                    <div class="pure-control-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" class="pure-input-1-2" id="your_name" name="name" autofocus>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="location">Dojo Location:</label>
+                        <select name="dojo" type="text" class="pure-input-1-2"id="location" placeholder="Dojo Location">
+                            <option value="null" disabled selected></option>
+                            <option value="Seattle">Seattle</option>
+                            <option value="Los Angeles">Los Angeles</option>
+                            <option value="Silicon Valley">Silicon Valley</option>
+                            <option value="Dallas">Dallas</option>
+                            <option value="Washington DC">Washington DC</option>
+                            <option value="Chicago">Chicago</option>
+                            <option value="Tulsa">Tulsa</option>
+                        </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="language">Favorite Language:</label>
+                        <select name="language" class="pure-input-1-2" id="language">
+                            <option value="null" disabled selected></option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="Python">Python</option>
+                            <option value="C#">C#</option>
+                            <option value="French">French</option>
+                        </select>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="comments">Comments:</label>
+                        <textarea class="pure-input-1-2" id="comments" name="comments"></textarea>
+                    </div>
+                    <div class="pure-controls">
+                        <input class="results_button" type="submit" name="submit" value="Submit">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
