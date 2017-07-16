@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name='viewport' content="width=device-width initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'session_words/css/styles.css' %}" media="screen" title="session words" charset="UTF-8">
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-6 left">
+            <form action="/newword" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <h1>Add a new word</h1>
+                    <input type="text" name="newword" id="newwordbox">
+                </fieldset>
+                <fieldset>
+                    <h3>Choose color</h3>
+                    <input type="radio" name="color" value="red" checked> Red<br>
+                    <input type="radio" name="color" value="green" > Green<br>
+                    <input type="radio" name="color" value="blue" > Blue<br>
+                </fieldset>
+                <fieldset>
+                    <input type="checkbox" name="font" id="checkbox"> Show in BIG fonts!
+                </fieldset>
+                <fieldset>
+                    <input id="add_button" type="submit" name="submit" id="submit" value="Add to Session">
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-md-6 right">
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="/reset">
+                        <input id="reset" type="submit" name="reset" value="Clear Session">
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {% for data in request.session.new_word %}
+                    <h5 class="{{data.color}} {{data.font}} wordbox">{{data.word}}<span id="added_info"> added on {{data.time}} </span></h5>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
