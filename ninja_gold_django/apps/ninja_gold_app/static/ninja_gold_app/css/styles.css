@@ -1,0 +1,21 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    background-color: pink;
+    text-align: center;
+}
+.jumbotron {
+border: 2px solid black;
+background-image: -webkit-gradient(linear, left top, left bottom, from(darkgray), to(white));
+background-image: -webkit-linear-gradient(top, darkgray, white);
+background-image: -moz-linear-gradient(top, darkgray, white);
+background-image: linear-gradient(to bottom, darkgray, white);
+}
+.box {
+border: 2px solid black;
+background-image: -webkit-gradient(linear, left top, left bottom, from(darkgray), to(white));
+background-image: -webkit-linear-gradient(top, darkgray, white);
+background-image: -moz-linear-gradient(top, darkgray, white);
+background-image: linear-gradient(to bottom, darkgray, white);
+}
