@@ -2,6 +2,7 @@ import django
 from django.db.models import Count
  
 from apps.dojo_ninjas.models import *
+from apps.books_authors.models import *
 
 def create_dojo(name, city, state):
     return Dojos.objects.create(name=name, city=city, state=state)
@@ -19,6 +20,8 @@ def show_ninjas(dojo_name):
     dojo = Ninjas.objects.filter(dojo__name=dojo_name)
     for ninja in dojo:
         print ninja.first_name, ninja.last_name
+
+
 
 
 
